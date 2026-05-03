@@ -66,10 +66,11 @@ http://127.0.0.1:5500
 ## project Structure
 
 ```
-main.py
-index.html
-signals.log
 README.md
+index.html
+main.py
+signals.log
+
 
 
 
