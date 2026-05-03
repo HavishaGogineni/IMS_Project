@@ -1,12 +1,12 @@
-# 🚀 Incident Management System (IMS)
+#Incident Management System (IMS)
 
-## 📌 Overview
+##Overview
 
 This project is a simple Incident Management System built using FastAPI (backend) and HTML/JavaScript (frontend). It helps in sending, storing, and managing system signals (incidents).
 
 ---
 
-## ⚙️ Tech Stack
+##Tech Stack
 
 * Backend: FastAPI (Python)
 * Frontend: HTML, JavaScript
@@ -14,7 +14,7 @@ This project is a simple Incident Management System built using FastAPI (backend
 
 ---
 
-## 🚀 Features
+##Features
 
 * Send system signals
 * Auto-generate Incident IDs (INC-1, INC-2...)
@@ -25,9 +25,9 @@ This project is a simple Incident Management System built using FastAPI (backend
 
 ---
 
-## ▶️ How to Run
+##How to Run
 
-### Backend
+###Backend
 
 Run this command:
 
@@ -63,14 +63,20 @@ http://127.0.0.1:5500
 
 ---
 
-## 📂 Project Structure
+## project Structure
 
 ```
 main.py
 index.html
 signals.log
 README.md
+
+
+
 ```
+Author
+
+This project was built as part of an internship assignment.
 
 ---
 
