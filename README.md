@@ -80,7 +80,4 @@ This project was built as part of an internship assignment.
 
 ---
 
-## ✨ Author
 
-This project was built as part of an internship assignment.
-.
