@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IMS Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            text-align: center;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 6px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        pre {
+            background: white;
+            padding: 10px;
+            width: 80%;
+            margin: auto;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>🚀 Incident Management System</h2>
+
+<div class="box">
+    <h3>Send Signal</h3>
+    <input id="component" placeholder="Component ID"><br>
+    <input id="error" placeholder="Error"><br>
+    <input id="severity" placeholder="HIGH / LOW"><br>
+    <button onclick="sendSignal()">Send Signal</button>
+</div>
+
+<div class="box">
+    <h3>View Signals</h3>
+    <button onclick="getSignals()">Load Signals</button>
+</div>
+
+<pre id="output"></pre>
+
+<div class="box">
+    <h3>Update Status</h3>
+    <input id="incident_id" placeholder="INC-1"><br>
+    <input id="status" placeholder="OPEN / CLOSED"><br>
+    <textarea id="rca" placeholder='{"root_cause":"..."}'></textarea><br>
+    <button onclick="updateStatus()">Update</button>
+</div>
+
+<script>
+
+async function sendSignal() {
+    await fetch("http://127.0.0.1:8000/signal", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            component_id: document.getElementById("component").value,
+            error: document.getElementById("error").value,
+            severity: document.getElementById("severity").value
+        })
+    });
+    alert("Signal Sent");
+}
+
+async function getSignals() {
+    let res = await fetch("http://127.0.0.1:8000/signals");
+    let data = await res.json();
+    document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+}
+
+async function updateStatus() {
+    let id = document.getElementById("incident_id").value;
+    let status = document.getElementById("status").value;
+
+    let rcaText = document.getElementById("rca").value;
+    let rca = rcaText ? JSON.parse(rcaText) : null;
+
+    await fetch(`http://127.0.0.1:8000/signal/${id}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            status: status,
+            rca: rca
+        })
+    });
+
+    alert("Updated");
+}
+
+</script>
+
+</body>
+</html>

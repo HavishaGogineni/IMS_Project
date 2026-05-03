@@ -1,0 +1,4 @@
+{"incident_id": "INC-1", "component_id": "API-1", "error": "timeout", "severity": "HIGH", "status": "OPEN", "timestamp": "2026-05-02T14:53:46.766753"}
+{"incident_id": "INC-2", "component_id": "API-1", "error": "timeout", "severity": "HIGH", "status": "OPEN", "timestamp": "2026-05-02T15:10:22.150920"}
+{"incident_id": "INC-3", "component_id": "DB-1", "error": "connectionfailed", "severity": "LOW", "status": "OPEN", "timestamp": "2026-05-02T15:11:28.132134"}
+{"incident_id": "INC-4", "component_id": "CACHE-1", "error": "slow", "severity": "HIGH", "status": "OPEN", "timestamp": "2026-05-02T15:12:25.398128"}
